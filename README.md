@@ -1,5 +1,5 @@
 # COVID Monitor SDE
-> App no oficial que recolecta datos oficiales de la pandemia en la provincia de Santiago del Estero y 
+> App no oficial que recolecta datos oficiales de la pandemia COVID-19 en la provincia de Santiago del Estero y 
 > genera visualizaciones de seguimiento.
 
 ![license](https://img.shields.io/badge/license-Apache-orange)
@@ -7,10 +7,9 @@
 
 
 `COVID Monitor SDE` es una web app (no oficial) de procesamiento de datos que recolecta datos de los reportes 
-diarios/semanales emitidos por el Ministerio de Salud de Santiago del Estero en su web oficial 
-y los procesa para mostrar la evolución de testeos, contagios, recuperaciones y fallecimientos 
+diarios/semanales de la pandemia COVID-19 emitidos por el Ministerio de Salud de Santiago del Estero en su 
+web oficial y los procesa para mostrar la evolución de testeos, contagios, recuperaciones y fallecimientos 
 por semana, los totales acumulados y los máximos y mínimos por período.
-
 
 ## Instalación
 
