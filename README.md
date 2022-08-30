@@ -13,7 +13,8 @@ por semana, los totales acumulados y los máximos y mínimos por período.
 
 ## Instalación
 
-`COVID Monitor SDE` está deployada en `streamlit cloud`. Para acceder [click aquí]().
+`COVID Monitor SDE` está deployada en `streamlit cloud`. 
+Para acceder [click aquí](https://gonzalezgbr-covid-monitor-sde-covidmonitorapp-hxmp74.streamlitapp.com/).
 
 ## Uso
 
