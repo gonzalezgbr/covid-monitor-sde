@@ -1,16 +1,16 @@
-# scraper.py
+"""This module scrapes the MH SDE web to extract data for the generation of the dataset."""
 
 import csv
-
-from bs4 import BeautifulSoup
 from pathlib import Path
 import requests
+
+from bs4 import BeautifulSoup
 
 from covidmonitor.scraping.extractor import extract_report_data
 
 
 class COVIDScraper:
-    """Scrapea los reportes de COVID del Ministerio de Salud SDE para generar el dataset."""
+    """Scrapes the COVID reports from the MH SDE website in order to generate the dataset."""
 
     def __init__(self):
         self.start_url = 'https://msaludsgo.gov.ar/web/seccion/covid-19/reporte-diario/'
@@ -19,17 +19,17 @@ class COVIDScraper:
         self.dataset_fields = ['fecha', 'tipo_reporte', 'recuperados', 'fallecidos', 'isopados', 'positivos']
 
     def collect_data(self):
-        """Interfaz pública. Chequea desde que fecha se debe descargar y convoca la descarga de esos datos."""
+        """Public interface. Check wich date to start from and trigger download of data."""
         print('>>> INICIANDO DESCARGA DE DATOS...')
-        # chequear si hay datos en el dataset, si no hay la url de fin será la del primer reporte
+        # check if there's data in the dataset, if not the end url will be the first report
         self.end_url = 'https://msaludsgo.gov.ar/web/reporte-diario-29-04-2021/'
-        # si tengo algo descargado, extraigo la ultima fecha y cambio la url de fin
-        # self.end_url = la final es la ultima que ya descargué
+        # if I already have data downloaded, extract last date and change end url
+        # self.end_url = is the last one dowloaded
         self.navigate_to(self.start_url)
         print('>>> DESCARGA DE DATOS COMPLETADA!')
 
     def navigate_to(self, url: str):
-        """Navega por las páginas de reportes usando la página siguiente."""
+        """Browse the report pages using the next page link."""
         try:
             r = requests.get(url)
         except Exception as e:
@@ -50,7 +50,7 @@ class COVIDScraper:
             return
 
     def scrape_page(self, url: str):
-        """Descarga los campos específicos de un reporte COVID."""
+        """Downloads the specific fields needed for reporting."""
         try:
             r = requests.get(url)
         except Exception as e:
@@ -66,7 +66,7 @@ class COVIDScraper:
         self.save_to_file(report_data)
 
     def save_to_file(self, covid_data: dict):
-        """Guarda los datos de un reporte en el file que será el dataset."""
+        """Save the report data in the file that will be processed as dataset."""
         new = True
         if self.dataset_path.exists():
             new = False

@@ -1,25 +1,24 @@
-# app.py
-
-"""Módulo interfaz de COVID monitor. Genera la app streamlit en base al dataset."""
+"""This module is the interface of COVID Monitor SDE. It generates the streamlit app from
+ the dataset."""
 
 from datetime import date
 
 from millify import millify
 import streamlit as st
 
-from data_processor import get_minimos, get_maximos, load_data, total_acumulado
+from covidmonitor.data_processor import get_minimos, get_maximos, load_data, total_acumulado
 
 
 def sidebar():
-    """Genera la sidebar de la app streamlit."""
+    """Generate the streamlit app sidebar."""
     with st.sidebar:
         st.title('COVID Monitor SDE')
         year = st.selectbox("Elegir año del reporte", ['2021', '2022', 'Todos los años'])
 
         # Footer
         st.markdown("""---""")
-        st.markdown('COVID Monitor es una app no oficial. Los datos mostrados se descargan y procesan de forma '
-                    'automática por lo que pueden contener errores.')
+        st.markdown('COVID Monitor es una app no oficial. Los datos mostrados se descargan'
+                    ' y procesan de forma automática por lo que pueden contener errores.')
         st.markdown("[Fuentes de datos](#fuentes-de-datos)", unsafe_allow_html=True)
         st.markdown("---")
         st.markdown("By **GG** | [github.com@gonzalezgbr](https://github.com/gonzalezgbr)")
@@ -33,15 +32,16 @@ def main():
         page_title="COVID Monitor SDE",
         page_icon="📉", )
 
-    # El año del reporte se elige en el combo de la sidebar
+    # The report year is chosen in the combo box from the sidebar
     year = sidebar()
 
     # Title
     st.image('covidmonitor/img/banner.png')
-    st.info('COVID Monitor SDE es una app no oficial que recuenta datos de la pandemia COVID-19 tomados de '
-            'la web del Ministerio de Salud de la pcia. de Santiago del Estero, Argentina.')
+    st.info('COVID Monitor SDE es una app no oficial que recuenta datos de la pandemia'
+            ' COVID-19 tomados de la web del Ministerio de Salud de la pcia. de Santiago'
+            ' del Estero, Argentina.')
 
-    # Genera una lista con los años a incluir en el reporte
+    # Generates a list with the years to inlcude in the report
     if year == 'Todos los años':
         years = range(2021, date.today().year + 1)
         title_year = f'2021-{str(date.today().year)}'
@@ -52,7 +52,7 @@ def main():
     st.title(f'Reporte {title_year}')
     df = load_data(years)
 
-    # Totales acumulados
+    # Cumulative totals
     st.header('Totales acumulados')
     col1, col2, col3, col4 = st.columns(4)
     isopados_ac = millify(total_acumulado(df['isopados']), precision=2)
@@ -69,7 +69,7 @@ def main():
     with col4:
         st.metric(label="Fallecidos", value=fallecidos_ac)
 
-    # Tendencias
+    # Trends
     st.header('Tendencias')
     st.subheader('Isopados y positivos')
     chart_data_iso_pos = df[['fecha', 'isopados', 'positivos']]
@@ -83,7 +83,7 @@ def main():
     chart_data_recu_fall = df[['fecha', 'fallecidos']]
     st.line_chart(chart_data_recu_fall, x='fecha', y=['fallecidos'])
 
-    # Mínimos y máximos
+    # Minimum and maximum
     st.header('Mínimos y Máximos')
     tab1, tab2, tab3 = st.tabs(["Contagios".upper(), "Altas".upper(), "Fallecimientos".upper()])
     minimos = get_minimos(df)
@@ -117,7 +117,7 @@ def main():
         else:
             st.success(f'Hubo {minimos["fallecidos"][0]} semanas sin fallecimientos durante este período.', icon='🕊')
 
-    # Fuentes de datos
+    # Data sources
     st.markdown("---")
     st.header('Fuentes de datos')
     st.markdown('Los datos utilizados en el análisis fueron descargados de:')
