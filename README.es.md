@@ -8,7 +8,7 @@
 
 *Read this in other languages:* [*README.en*](README.md) 
 
-*Have you thought about learning apanish? It's the 4th most spoken language in the world, used by roughly 500 million people!*
+*Have you thought about learning spanish? It's the 4th most spoken language in the world, used by roughly 500 million people!*
 
 ## ¿Qué es?
 `COVID Monitor SDE` es una *web app no oficial* que recolecta datos, mediante scraping, de los reportes diarios/semanales de la pandemia COVID-19 emitidos por el *Ministerio de Salud de Santiago del Estero* en su web oficial y los procesa para mostrar la evolución de testeos, contagios, recuperaciones y fallecimientos por semana, así como los totales acumulados y los máximos y mínimos por período.
