@@ -1,58 +1,64 @@
 # COVID Monitor SDE
-> App no oficial que recolecta datos oficiales de la pandemia COVID-19 en la provincia de Santiago del Estero y 
-> genera visualizaciones de seguimiento.
+**Web app that collects data about the COVID-19 pandemic in the province of Santiago del Estero (Argentina) and generates summary visualizations.**
 
-![license](https://img.shields.io/badge/license-Apache-orange)
+![Category](https://img.shields.io/badge/%23-data%20analysis%20%26%20visualization-success)
+![Category](https://img.shields.io/badge/%23-web%20scraping-success)
 ![made_with](https://img.shields.io/badge/Made%20with-Python-blue)
+![license](https://img.shields.io/badge/license-Apache-orange)
 
+*Read this in other languages:* [*README.es*](README.es.md) 
 
-`COVID Monitor SDE` es una web app (no oficial) de procesamiento de datos que recolecta datos de los reportes 
-diarios/semanales de la pandemia COVID-19 emitidos por el Ministerio de Salud de Santiago del Estero en su 
-web oficial y los procesa para mostrar la evolución de testeos, contagios, recuperaciones y fallecimientos 
-por semana, los totales acumulados y los máximos y mínimos por período.
+## What is it?
+`COVID Monitor SDE` it's an *unofficial web app* that scrapes data from the daily/weekly COVID-19 reports issued by the *Ministry of Health of Santiago del Estero* and posted in their official website. The data is then processed to show the evolution of testing, positive cases, recovered cases and deaths per week, as well as cumulative totals, and maximum and minimum values per period. 
 
-## Instalación
+## Installation
 
-`COVID Monitor SDE` está deployada en `streamlit cloud`. 
-Para acceder [click aquí](https://gonzalezgbr-covid-monitor-sde-covidmonitorapp-hxmp74.streamlitapp.com/).
+`COVID Monitor SDE` is deployed on `streamlit cloud`. 
+[Click here](https://gonzalezgbr-covid-monitor-sde-covidmonitorapp-hxmp74.streamlitapp.com/) to access.
 
-## Uso
+## Usage
 
-La app muestra las métricas y gráficos en base al dataset generado y para el año seleccionado. 
+The app shows the metrics and graphs based on the generated dataset, for the selected year.
 
 ![Covid Monitor GUI](docs/covid_monitor_main.png)
 
-Se puede cambiar el año del que se desea ver el reporte en la barra de la izquierda y los datos mostrados 
-se actualizarán de forma dinámica. También hay una opción para ver "todos los años".
+You can change the year of the report in the left sidebar and the calculations and visualizations will be updated dinamycally. You can also choose the option *"todos los años"* (every year).
 
 ![Covid Monitor año](docs/covid_monitor_elegir_anio.png)
 
-> ℹ️El reporte diario comenzó a publicarse en la web mencionada en abril del 2021, por lo tanto
-en el análisis no se cuenta con datos previos a esa fecha. Por esta misma razón, los totales acumulados de todos
-los años no coincidirán con las fuentes oficiales ya que no incluyen los datos del año 2020 ni de los primeros 
-meses de 2021.
-
-
-### Fuentes de datos
-
-Los datos utilizados en el análisis fueron descargados de [Ministerio de Salud de Santiago del Estero](https://msaludsgo.gov.ar/web/seccion/covid-19/reporte-diario/).
+> ℹ️ The daily reports from the MH were posted in their website from april 2021 onwards, therefore the analysis does not include data from the previous periods. This is also why our cumulative totals for all years will not match the official sources of information (we don't have data from 2020 nor from the first months of 2021).
 
 ## Tech stack
 
-* `requests` para descargar la información
-* `beatifulsoup4` y `re` para extraer los datos 
-* `pandas` para procesar el dataset y generar las stats
-* `streamlit` y `millify` para mostrar los datos
+This project was built with `python`:
+* `requests` to download the information from web pages
+* `beatifulsoup4` and `re` to extract the needed data
+* `pandas` to process the dataset and calculate the stats
+* `streamlit` and `millify` to show the data
+
+## Data Sources
+
+The data used was scraped from [Ministerio de Salud de Santiago del Estero](https://msaludsgo.gov.ar/web/seccion/covid-19/reporte-diario/).
 
 ## Release History
 
-* 0.1.0 | First release
+* 0.1.1 
+    * Minor style changes
+* 0.1.0 
+    * First release
 
+## License
 
-## Meta
+This project is licensed under the terms of the `Apache` license.
+You can check out the full license [here](LICENSE).
 
-By GG - [@GargaraG](https://twitter.com/GargaraG) 
+## Feedback
 
-Distribuido bajo licencia Apache. Ver ``LICENSE`` para más información.
+Any feedback is greatly appreciated! You can contact me via [`twitter`](https://twitter.com/GargaraG) or [`linkedin`](https://www.linkedin.com/in/gonzalezgbr/). 
 
-[https://github.com/gonzalezgbr/](https://github.com/gonzalezgbr/)
+Thanks for checking out this project ♥
+
+---
+
+**By GG** · [`github` @gonzalezgbr](https://github.com/gonzalezgbr/) · [`linkedin` @gonzalezgbr](https://www.linkedin.com/in/gonzalezgbr/) · [`twitter` @GargaraG](https://twitter.com/GargaraG) 
+
